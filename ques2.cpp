@@ -3,28 +3,28 @@
 #include <stdio.h> 
 #include <sys/socket.h> 
 #include <stdlib.h> 
-#include <netinet/in.h> 
+#include <netinet/in.h>
+#include <arpa/inet.h> 
 #include <string.h>
+#include <iostream>
+using namespace std;
 
-// struct sockaddr_in* func1(){
-    // struct sockaddr_in addr1;
-    // addr1.sin_family = AF_INET
-    // addr1.sin_addr.s_addr = 
-// }
+void func1(struct sockaddr_in* address,char* c){
+    address->sin_family = AF_INET;
+    inet_aton(c,&(address->sin_addr));
+
+}
+
+void printIPA(struct sockaddr_in address){
+    printf("%s\n",inet_ntoa(address.sin_addr));
+}
 
 int main(int argc,char** argv){
     int server_fd, new_socket, val_read;
     struct sockaddr_in address;
-    // int opt = 1;
-    // int addrlen = sizeof(address);
-    // char buffer[1024] = {0};
-    // char *hello = "hello from the server"
-    address.sin_family = AF_INET;
-    // address.sin_addr.s_addr = 
-    // printf("ad");
-    // printf("%u",INADDR_ANY);
-    // printf("ad");
-    
-    // printf("hello world\n");
+
+    func1(&address,argv[1]);
+    printIPA(address);
+
     return 0;
 }
