@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+int main(int argc,char** argv){
     
     union {
         int i;
@@ -18,9 +18,7 @@ int main(){
     x.i = 1;
     if(x.c[0] == 1){cout<< "little-endian\n"<<endl;}
     else{cout<<"big-endian\n"<<endl;}
+
     return 0;
-
-    ntohl()
-
-
 }
+

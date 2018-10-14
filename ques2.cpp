@@ -10,7 +10,7 @@
 using namespace std;
 
 void func1(struct sockaddr_in* address,char* c){
-    address->sin_family = AF_INET;
+
     inet_aton(c,&(address->sin_addr));
 
 }
